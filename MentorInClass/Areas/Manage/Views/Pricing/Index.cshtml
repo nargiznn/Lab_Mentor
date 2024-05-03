@@ -1,0 +1,50 @@
+﻿
+@model List<Card>
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Pricing</h1>
+        <a asp-action="create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            Create
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">BtnContext</th>
+                        <th scope="col">IsFeatured</th>
+                        <th scope="col">IsAdvanced</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>@item.BtnContext</td>
+                            <td>@item.IsFeatured</td>
+                            <td>@item.IsAdvanced</td>
+                            <td>
+                                <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-danger" href="#">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                
+                 
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
